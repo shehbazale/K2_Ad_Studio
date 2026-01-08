@@ -7,19 +7,19 @@ import { Card, CardContent } from '@/components/ui/card';
 const stats = [
   {
     icon: Briefcase,
-    value: '500+',
+    value: '100+',
     label: 'Projects Completed',
     color: 'from-orange-500 to-amber-500',
   },
   {
     icon: Users,
-    value: '200+',
+    value: '80+',
     label: 'Happy Clients',
     color: 'from-pink-500 to-rose-500',
   },
   {
     icon: Award,
-    value: '8+',
+    value: '3+',
     label: 'Years Experience',
     color: 'from-blue-500 to-cyan-500',
   },
@@ -98,7 +98,7 @@ export default function About() {
           <Card className="border-0 shadow-xl bg-gradient-to-br from-orange-50 to-pink-50">
             <CardContent className="p-12">
               <h3 className="text-3xl font-bold mb-6 text-center">
-                Why Choose CreativeHub?
+                Why Choose North Graphics?
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">

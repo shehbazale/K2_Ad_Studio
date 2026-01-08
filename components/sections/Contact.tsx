@@ -28,31 +28,31 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    {
-      icon: Phone,
-      title: 'Phone',
-      content: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
-      color: 'from-blue-500 to-cyan-500',
+    // {
+    //   icon: Phone,
+    //   title: 'Phone',
+    //   content: '+1 (555) 123-4567',
+    //   link: 'tel:+15551234567',
+    //   color: 'from-blue-500 to-cyan-500',
+    // },
+        {
+      icon: MessageSquare,
+      title: 'WhatsApp',
+      content: '+92 3400113341',
+      link: 'https://wa.me/3400113341',
+      color: 'from-green-500 to-emerald-500',
     },
     {
       icon: Mail,
       title: 'Email',
-      content: 'hello@creativehub.com',
-      link: 'mailto:hello@creativehub.com',
+      content: 'hello@northgraphics.com',
+      link: 'mailto:hello@northgraphics.com',
       color: 'from-orange-500 to-amber-500',
-    },
-    {
-      icon: MessageSquare,
-      title: 'WhatsApp',
-      content: '+1 (555) 123-4567',
-      link: 'https://wa.me/15551234567',
-      color: 'from-green-500 to-emerald-500',
     },
     {
       icon: MapPin,
       title: 'Location',
-      content: 'New York, USA',
+      content: 'Skardu, Pakistan',
       link: '#',
       color: 'from-pink-500 to-rose-500',
     },

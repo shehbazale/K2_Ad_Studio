@@ -12,7 +12,7 @@ const testimonials = [
     name: 'Sarah Johnson',
     role: 'CEO, TechStart Inc',
     content:
-      'CreativeHub transformed our brand identity completely. Their logo design and branding materials exceeded our expectations. The team is professional, creative, and incredibly responsive.',
+      'North Graphics transformed our brand identity completely. Their logo design and branding materials exceeded our expectations. The team is professional, creative, and incredibly responsive.',
     rating: 5,
   },
   {
@@ -44,7 +44,7 @@ const testimonials = [
     name: 'Lisa Anderson',
     role: 'Social Media Manager',
     content:
-      'Working with CreativeHub has been a game-changer for our social media presence. Their designs are fresh, engaging, and perfectly aligned with our brand voice.',
+      'Working with North Graphics has been a game-changer for our social media presence. Their designs are fresh, engaging, and perfectly aligned with our brand voice.',
     rating: 5,
   },
 ];

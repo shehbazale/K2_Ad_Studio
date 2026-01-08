@@ -65,7 +65,7 @@ export default function Hero() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm border border-white/20">
               <Sparkles className="w-4 h-4 text-orange-400" />
-              Award-Winning Design Agency
+            Trusted Creative Design Agency
             </span>
           </motion.div>
 
@@ -113,7 +113,7 @@ export default function Hero() {
                 const element = document.querySelector('#portfolio');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-6 text-lg"
+              className=" text-black hover:bg-white/90  px-8 py-6 text-lg"
             >
               View Our Work
             </Button>

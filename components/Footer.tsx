@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Palette className="w-8 h-8 text-orange-500" />
-              <span className="text-2xl font-bold">CreativeHub</span>
+              <span className="text-2xl font-bold">North Graphics</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
               Transforming ideas into stunning visual experiences. Your trusted
@@ -71,7 +71,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-gray-400">
-            © {new Date().getFullYear()} CreativeHub. All rights reserved.
+            © {new Date().getFullYear()} North Graphics. All rights reserved.
           </p>
         </div>
       </div>

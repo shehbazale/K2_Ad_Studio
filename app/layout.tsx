@@ -5,8 +5,13 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'CreativeHub - Graphic Design Agency',
+  title: 'North Graphics - Graphic Design Agency',
   description: 'Transform your brand with stunning visual designs. Expert logo design, social media graphics, flyers, and more.',
+    icons: {
+    icon: '/logo.png',      
+    shortcut: '/logo.png',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     images: [
       {

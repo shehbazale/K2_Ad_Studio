@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,12 +48,18 @@ export default function Navigation() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <motion.div
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-1"
             whileHover={{ scale: 1.05 }}
           >
-            <Palette className="w-8 h-8 text-orange-500" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-              CreativeHub
+            {/* <Palette className="w-8 h-8 text-orange-500" /> */}
+            <Image
+            height={30}
+            width={30}
+            src={'/bg.png'}
+            alt='NG'
+            />
+            <span className="text-xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+              North Graphics
             </span>
           </motion.div>
 
