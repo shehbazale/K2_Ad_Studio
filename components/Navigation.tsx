@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Palette } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+import { navLinks } from './data/utils';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,14 +18,6 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'About', href: '#about' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
-  ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -41,25 +33,19 @@ export default function Navigation() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
+          ? 'bg-black/75 backdrop-blur-xl border-b border-cyan-400/20 shadow-[0_10px_40px_rgba(6,182,212,0.12)]'
           : 'bg-transparent'
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <motion.div
-            className="flex items-center space-x-1"
+            className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            {/* <Palette className="w-8 h-8 text-orange-500" /> */}
-            <Image
-            height={30}
-            width={30}
-            src={'/bg.png'}
-            alt='NG'
-            />
-            <span className="text-xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-              North Graphics
+            <div className="h-9 w-9 rounded-full border border-cyan-400/60 bg-cyan-400/10 shadow-[0_0_18px_rgba(34,211,238,0.45)]" />
+            <span className="text-xl font-bold tracking-tight text-white">
+              K2 <span className="text-cyan-400">Ad Studio</span>
             </span>
           </motion.div>
 
@@ -69,7 +55,7 @@ export default function Navigation() {
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
                 className={`text-sm font-medium transition-colors hover:text-orange-500 ${
-                  isScrolled ? 'text-gray-800' : 'text-white'
+                  isScrolled ? 'text-slate-200 hover:text-cyan-300' : 'text-slate-200 hover:text-cyan-300'
                 }`}
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}
@@ -79,9 +65,9 @@ export default function Navigation() {
             ))}
             <Button
               onClick={() => scrollToSection('#contact')}
-              className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600"
+              className="bg-cyan-400 text-black hover:bg-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.4)]"
             >
-              Get Started
+              Get a Quote
             </Button>
           </div>
 
@@ -90,9 +76,9 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className={isScrolled ? 'text-gray-800' : 'text-white'} />
+              <X className={isScrolled ? 'text-slate-200' : 'text-slate-200'} />
             ) : (
-              <Menu className={isScrolled ? 'text-gray-800' : 'text-white'} />
+              <Menu className={isScrolled ? 'text-slate-200' : 'text-slate-200'} />
             )}
           </button>
         </div>
@@ -108,13 +94,19 @@ export default function Navigation() {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors hover:bg-orange-50 ${
-                  isScrolled ? 'text-gray-800' : 'text-white'
+                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors hover:bg-cyan-400/10 ${
+                  isScrolled ? 'text-slate-200' : 'text-slate-200'
                 }`}
               >
                 {link.name}
               </button>
             ))}
+            <Button
+              onClick={() => scrollToSection('#contact')}
+              className="w-full bg-cyan-400 text-black hover:bg-cyan-300"
+            >
+              Get a Quote
+            </Button>
           </motion.div>
         )}
       </nav>
