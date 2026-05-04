@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { navLinks } from './data/utils';
+import { navLinks } from '@/components/data/utils';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,7 +44,13 @@ export default function Navigation() {
             className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="h-9 w-9 rounded-full border border-cyan-400/60 bg-cyan-400/10 shadow-[0_0_18px_rgba(34,211,238,0.45)]" />
+            <Image
+              src="/bg.png"
+              alt="K2 Ad Studio logo"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-full border border-cyan-400/60 object-cover shadow-[0_0_18px_rgba(34,211,238,0.45)]"
+            />
             <span className="text-xl font-bold tracking-tight text-white">
               K2 <span className="text-cyan-400">Ad Studio</span>
             </span>

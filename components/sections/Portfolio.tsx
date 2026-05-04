@@ -17,6 +17,7 @@ const projects = [
     id: 1,
     title: 'E-commerce Product Launch Ad',
     category: 'Video Ads',
+    video: '/Video/Numberdar%20paint%20final.mp4',
     image: '/food_menu.jpg',
     description:
       'Cinematic launch video with a data-driven script that improved purchase intent and ad recall.',
@@ -33,6 +34,7 @@ const projects = [
     id: 3,
     title: 'Fitness Brand Retargeting Reel',
     category: 'Video Ads',
+    video: '/Video/Zain%20trader%20video%20(4).mp4',
     image: '/gym_thumbnail.png',
     description:
       'Retargeting-focused visual storytelling that boosted click-through performance.',
@@ -49,6 +51,7 @@ const projects = [
     id: 5,
     title: 'Travel Agency Promo Spot',
     category: 'Video Ads',
+    video: '/Video/Numberdar%20paint%20final.mp4',
     image: '/luxus_tour.jpg',
     description:
       'Story-led promotional ad crafted for brand trust and high watch-through rates.',
@@ -132,17 +135,40 @@ export default function Portfolio() {
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="relative w-full h-full">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  {project.video ? (
+                    <video
+                      src={project.video}
+                      className="h-full w-full object-cover blur-[1.5px] transition-transform duration-500 group-hover:scale-110"
+                      muted
+                      playsInline
+                      preload="metadata"
+                    />
+                  ) : (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
                 </div>
-                <motion.div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute right-4 top-4 rounded-full border border-cyan-300/60 bg-black/60 p-2 backdrop-blur">
-                    <PlayCircle className="h-6 w-6 text-cyan-300" />
+                <motion.div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute left-4 top-4 rounded-full border border-cyan-300/60 bg-black/65 p-1.5 backdrop-blur">
+                    <Image
+                      src="/bg.png"
+                      alt="K2 Ad Studio logo"
+                      width={28}
+                      height={28}
+                      className="h-7 w-7 rounded-full object-cover"
+                    />
                   </div>
+                  {project.video && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="rounded-full border border-cyan-300/60 bg-black/60 p-3 backdrop-blur">
+                        <PlayCircle className="h-8 w-8 text-cyan-300" />
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <span className="text-cyan-300 text-sm font-semibold">
                       {project.category}
@@ -160,7 +186,7 @@ export default function Portfolio() {
       </div>
 
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-4xl border border-cyan-400/20 bg-slate-950 text-slate-100">
+        <DialogContent className="max-h-[85vh] max-w-4xl overflow-hidden border border-cyan-400/20 bg-slate-950 text-slate-100">
           <DialogHeader>
             <DialogTitle className="text-3xl font-bold text-white">
               {selectedProject?.title}
@@ -172,14 +198,27 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="relative w-full h-96 rounded-lg overflow-hidden mb-6">
-                <Image
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              {selectedProject.video ? (
+                <div className="relative mb-6 h-96 w-full overflow-hidden rounded-lg">
+                  <video
+                    src={selectedProject.video}
+                    className="h-full w-full object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                  />
+                </div>
+              ) : (
+                <div className="mb-6 max-h-[55vh] w-full overflow-y-auto rounded-lg">
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    width={1200}
+                    height={1800}
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+              )}
               <div className="space-y-4">
                 <div>
                   <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-200">

@@ -2,63 +2,39 @@
 
 import { motion } from 'framer-motion';
 import {
-  Palette,
-  FileText,
-  Instagram,
-  CreditCard,
-  Youtube,
-  Menu as MenuIcon,
+  Video,
+  Megaphone,
+  PenTool,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const services = [
   {
-    icon: Palette,
-    title: 'Logo Design',
+    icon: Video,
+    title: 'Video Ad Production',
     description:
-      'Unique, memorable logos that capture your brand essence and make a lasting impression.',
-    color: 'from-orange-500 to-amber-500',
+      'Cinematic short-form and long-form video ads designed to maximize attention and conversions.',
+    color: 'from-cyan-500 to-blue-500',
   },
   {
-    icon: FileText,
-    title: 'Flyer & Poster Design',
+    icon: Megaphone,
+    title: 'Social Media Advertising',
     description:
-      'Eye-catching flyers and posters that grab attention and communicate your message effectively.',
-    color: 'from-pink-500 to-rose-500',
+      'Performance-focused ad campaigns for Meta, TikTok, and YouTube with precise audience targeting.',
+    color: 'from-blue-500 to-indigo-500',
   },
   {
-    icon: Instagram,
-    title: 'Social Media Posts & Ads',
+    icon: PenTool,
+    title: 'Branding & Design',
     description:
-      'Engaging social media content that drives engagement and builds your online presence.',
-    color: 'from-purple-500 to-indigo-500',
-  },
-  {
-    icon: CreditCard,
-    title: 'Business Card Design',
-    description:
-      'Professional business cards that leave a memorable first impression with potential clients.',
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
-    icon: Youtube,
-    title: 'YouTube Thumbnails',
-    description:
-      'Click-worthy thumbnails that increase views and make your content stand out.',
-    color: 'from-red-500 to-orange-500',
-  },
-  {
-    icon: MenuIcon,
-    title: 'Menu Design',
-    description:
-      'Appetizing menu designs that showcase your offerings and enhance the dining experience.',
-    color: 'from-green-500 to-emerald-500',
+      'Premium visual identity systems that give your brand a modern and memorable digital presence.',
+    color: 'from-cyan-500 to-sky-500',
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="services" className="bg-black py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,19 +43,19 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
+          <span className="text-cyan-300 font-semibold text-sm uppercase tracking-wider">
             Our Services
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-white">
             What We Do Best
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            From concept to execution, we deliver exceptional design solutions
-            tailored to your needs
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+            Conversion-focused creative services engineered for brands that want
+            measurable growth.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -88,7 +64,7 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="group h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden">
+              <Card className="group h-full cursor-pointer overflow-hidden border border-cyan-400/20 bg-white/5 shadow-xl shadow-cyan-500/10 backdrop-blur hover:-translate-y-1 hover:border-cyan-300/40 transition-all duration-300">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: 'spring', stiffness: 300 }}
@@ -96,17 +72,18 @@ export default function Services() {
                   <CardContent className="p-8">
                     <motion.div
                       className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6`}
-                      whileHover={{ rotate: 360 }}
+                      whileHover={{ rotate: 12 }}
                       transition={{ duration: 0.6 }}
                     >
                       <service.icon className="w-8 h-8 text-white" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
+                    <h3 className="mb-3 text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="leading-relaxed text-slate-300">
                       {service.description}
                     </p>
+                    <div className="mt-6 h-0.5 w-14 rounded-full bg-cyan-400/60 transition-all duration-300 group-hover:w-24" />
                   </CardContent>
                 </motion.div>
               </Card>

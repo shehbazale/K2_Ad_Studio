@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Send, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -14,7 +14,6 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     message: '',
   });
 
@@ -24,42 +23,35 @@ export default function Contact() {
       title: 'Message Sent!',
       description: "We'll get back to you as soon as possible.",
     });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: '', email: '', message: '' });
   };
 
   const contactInfo = [
-    // {
-    //   icon: Phone,
-    //   title: 'Phone',
-    //   content: '+1 (555) 123-4567',
-    //   link: 'tel:+15551234567',
-    //   color: 'from-blue-500 to-cyan-500',
-    // },
-        {
+    {
       icon: MessageSquare,
       title: 'WhatsApp',
       content: '+92 3400113341',
       link: 'https://wa.me/3400113341',
-      color: 'from-green-500 to-emerald-500',
+      color: 'from-cyan-500 to-blue-500',
     },
     {
       icon: Mail,
       title: 'Email',
-      content: 'hello@northgraphics.com',
-      link: 'mailto:hello@northgraphics.com',
-      color: 'from-orange-500 to-amber-500',
+      content: 'hello@k2adstudio.com',
+      link: 'mailto:hello@k2adstudio.com',
+      color: 'from-blue-500 to-indigo-500',
     },
     {
       icon: MapPin,
       title: 'Location',
       content: 'Skardu, Pakistan',
       link: '#',
-      color: 'from-pink-500 to-rose-500',
+      color: 'from-sky-500 to-cyan-500',
     },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="contact" className="bg-black py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,15 +60,15 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
+          <span className="text-cyan-300 font-semibold text-sm uppercase tracking-wider">
             Get In Touch
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4">
-            Let's Start Your Project
+          <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-white">
+            Let&apos;s Work Together
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Ready to bring your vision to life? Contact us today and let's create
-            something amazing together
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+            Tell us your goals and we will craft a conversion-focused ad strategy
+            for your business.
           </p>
         </motion.div>
 
@@ -93,7 +85,7 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+              <Card className="h-full border border-cyan-400/20 bg-white/5 shadow-xl shadow-cyan-500/10 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/35">
                 <CardContent className="p-8 text-center">
                   <motion.div
                     className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${info.color} flex items-center justify-center mb-4`}
@@ -102,12 +94,24 @@ export default function Contact() {
                   >
                     <info.icon className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h3 className="text-xl font-bold mb-2">{info.title}</h3>
-                  <p className="text-gray-600">{info.content}</p>
+                  <h3 className="text-xl font-bold mb-2 text-white">{info.title}</h3>
+                  <p className="text-slate-300">{info.content}</p>
                 </CardContent>
               </Card>
             </motion.a>
           ))}
+        </div>
+
+        <div className="mb-10 text-center">
+          <a
+            href="https://wa.me/3400113341"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md bg-cyan-400 px-6 py-3 font-semibold text-black shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-colors hover:bg-cyan-300"
+          >
+            <MessageSquare className="h-5 w-5" />
+            Chat on WhatsApp
+          </a>
         </div>
 
         <motion.div
@@ -117,7 +121,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <Card className="border-0 shadow-2xl">
+          <Card className="border border-cyan-400/20 bg-white/5 shadow-2xl shadow-cyan-500/10 backdrop-blur">
             <CardContent className="p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -125,55 +129,41 @@ export default function Contact() {
                     whileFocus={{ scale: 1.02 }}
                     className="space-y-2"
                   >
-                    <label className="text-sm font-semibold text-gray-700">
+                    <label className="text-sm font-semibold text-slate-200">
                       Your Name
                     </label>
                     <Input
                       required
-                      placeholder="John Doe"
+                      placeholder="Your Name"
                       value={formData.name}
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
-                      className="h-12 focus:ring-2 focus:ring-orange-500"
+                      className="h-12 border-cyan-400/30 bg-black/35 text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300"
                     />
                   </motion.div>
                   <motion.div
                     whileFocus={{ scale: 1.02 }}
                     className="space-y-2"
                   >
-                    <label className="text-sm font-semibold text-gray-700">
+                    <label className="text-sm font-semibold text-slate-200">
                       Email Address
                     </label>
                     <Input
                       required
                       type="email"
-                      placeholder="john@example.com"
+                      placeholder="abc@example.com"
                       value={formData.email}
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      className="h-12 focus:ring-2 focus:ring-orange-500"
+                      className="h-12 border-cyan-400/30 bg-black/35 text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300"
                     />
                   </motion.div>
                 </div>
 
                 <motion.div whileFocus={{ scale: 1.02 }} className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">
-                    Phone Number
-                  </label>
-                  <Input
-                    placeholder="+1 (555) 123-4567"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    className="h-12 focus:ring-2 focus:ring-orange-500"
-                  />
-                </motion.div>
-
-                <motion.div whileFocus={{ scale: 1.02 }} className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700">
+                  <label className="text-sm font-semibold text-slate-200">
                     Your Message
                   </label>
                   <Textarea
@@ -184,14 +174,14 @@ export default function Contact() {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     rows={6}
-                    className="focus:ring-2 focus:ring-orange-500"
+                    className="border-cyan-400/30 bg-black/35 text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300"
                   />
                 </motion.div>
 
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white py-6 text-lg group"
+                  className="group w-full bg-cyan-400 py-6 text-lg text-black hover:bg-cyan-300"
                 >
                   Send Message
                   <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

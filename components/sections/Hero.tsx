@@ -1,30 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 export default function Hero() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handlePlayVideo = async () => {
-    if (!videoRef.current) return;
-
-    try {
-      await videoRef.current.play();
-      setIsVideoPlaying(true);
-    } catch {
-      setIsVideoPlaying(false);
     }
   };
 
@@ -141,7 +126,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="relative mx-auto w-full max-w-xl space-y-5"
+            className="relative mx-auto w-full max-w-xl"
           >
             <div className="rounded-3xl border border-cyan-400/25 bg-white/5 p-3 backdrop-blur-xl shadow-[0_0_50px_rgba(34,211,238,0.2)]">
               <div className="relative overflow-hidden rounded-2xl">
@@ -153,41 +138,6 @@ export default function Hero() {
                   className="h-[340px] w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between rounded-xl border border-white/20 bg-black/45 px-4 py-3 text-sm text-slate-100 backdrop-blur">
-                  <span>K2 Ad Studio Creative Poster</span>
-                  <PlayCircle className="h-5 w-5 text-cyan-300" />
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-cyan-400/25 bg-white/5 p-3 backdrop-blur-xl shadow-[0_0_40px_rgba(34,211,238,0.16)]">
-              <div className="relative overflow-hidden rounded-2xl">
-                <video
-                  ref={videoRef}
-                  src="/Video/Numberdar%20paint%20final.mp4"
-                  poster="/K2%20ad%20poster.png"
-                  className="h-[220px] w-full object-cover"
-                  controls={isVideoPlaying}
-                  loop
-                  playsInline
-                  preload="metadata"
-                />
-                {!isVideoPlaying && (
-                  <button
-                    type="button"
-                    onClick={handlePlayVideo}
-                    className="absolute inset-0 flex items-center justify-center bg-black/50 transition-colors hover:bg-black/45"
-                    aria-label="Play featured video ad"
-                  >
-                    <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/70 bg-black/60 px-5 py-3 text-cyan-100 backdrop-blur">
-                      <PlayCircle className="h-6 w-6 text-cyan-300" />
-                      Play Video Ad
-                    </span>
-                  </button>
-                )}
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent p-4 text-sm text-slate-100">
-                  Featured Video Ad
-                </div>
               </div>
             </div>
           </motion.div>
