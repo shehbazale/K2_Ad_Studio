@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Footer() {
   const socialLinks = [
@@ -17,7 +18,13 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-3 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="h-9 w-9 rounded-full border border-cyan-400/60 bg-cyan-400/10 shadow-[0_0_20px_rgba(34,211,238,0.35)]" />
+              <Image
+              src="/bg.png"
+              alt="K2 Ad Studio logo"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-full border border-cyan-400/60 object-cover shadow-[0_0_18px_rgba(34,211,238,0.45)]"
+            />
               <span className="text-2xl font-bold">K2 Ad Studio</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
