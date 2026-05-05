@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Send, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Send, MessageSquare, MessageCircle, MessageCircleMore } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -37,7 +37,7 @@ export default function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      content: 'hello@k2adstudio.com',
+      content: 'baltiboy477@fgmail.com',
       link: 'mailto:hello@k2adstudio.com',
       color: 'from-blue-500 to-indigo-500',
     },
@@ -107,89 +107,89 @@ export default function Contact() {
             href="https://wa.me/3400113341"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md bg-cyan-400 px-6 py-3 font-semibold text-black shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-colors hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-3 py-3 font-semibold text-black shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-colors hover:bg-cyan-300"
           >
-            <MessageSquare className="h-5 w-5" />
-            Chat on WhatsApp
+            <MessageCircleMore className="h-10 w-10" />
+                    
           </a>
         </div>
+  {/* 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto"
+          >
+            <Card className="border border-cyan-400/20 bg-white/5 shadow-2xl shadow-cyan-500/10 backdrop-blur">
+              <CardContent className="p-8 md:p-12">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <motion.div
+                      whileFocus={{ scale: 1.02 }}
+                      className="space-y-2"
+                    >
+                      <label className="text-sm font-semibold text-slate-200">
+                        Your Name
+                      </label>
+                      <Input
+                        required
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
+                        className="h-12 border-cyan-400/30 bg-black/35 text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300"
+                      />
+                    </motion.div>
+                    <motion.div
+                      whileFocus={{ scale: 1.02 }}
+                      className="space-y-2"
+                    >
+                      <label className="text-sm font-semibold text-slate-200">
+                        Email Address
+                      </label>
+                      <Input
+                        required
+                        type="email"
+                        placeholder="abc@example.com"
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
+                        className="h-12 border-cyan-400/30 bg-black/35 text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300"
+                      />
+                    </motion.div>
+                  </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto"
-        >
-          <Card className="border border-cyan-400/20 bg-white/5 shadow-2xl shadow-cyan-500/10 backdrop-blur">
-            <CardContent className="p-8 md:p-12">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <motion.div
-                    whileFocus={{ scale: 1.02 }}
-                    className="space-y-2"
-                  >
+                  <motion.div whileFocus={{ scale: 1.02 }} className="space-y-2">
                     <label className="text-sm font-semibold text-slate-200">
-                      Your Name
+                      Your Message
                     </label>
-                    <Input
+                    <Textarea
                       required
-                      placeholder="Your Name"
-                      value={formData.name}
+                      placeholder="Tell us about your project..."
+                      value={formData.message}
                       onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
+                        setFormData({ ...formData, message: e.target.value })
                       }
-                      className="h-12 border-cyan-400/30 bg-black/35 text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300"
+                      rows={6}
+                      className="border-cyan-400/30 bg-black/35 text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300"
                     />
                   </motion.div>
-                  <motion.div
-                    whileFocus={{ scale: 1.02 }}
-                    className="space-y-2"
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="group w-full bg-cyan-400 py-6 text-lg text-black hover:bg-cyan-300"
                   >
-                    <label className="text-sm font-semibold text-slate-200">
-                      Email Address
-                    </label>
-                    <Input
-                      required
-                      type="email"
-                      placeholder="abc@example.com"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      className="h-12 border-cyan-400/30 bg-black/35 text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300"
-                    />
-                  </motion.div>
-                </div>
-
-                <motion.div whileFocus={{ scale: 1.02 }} className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-200">
-                    Your Message
-                  </label>
-                  <Textarea
-                    required
-                    placeholder="Tell us about your project..."
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    rows={6}
-                    className="border-cyan-400/30 bg-black/35 text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-300"
-                  />
-                </motion.div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="group w-full bg-cyan-400 py-6 text-lg text-black hover:bg-cyan-300"
-                >
-                  Send Message
-                  <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </motion.div>
+                    Send Message
+                    <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div> */}
       </div>
     </section>
   );

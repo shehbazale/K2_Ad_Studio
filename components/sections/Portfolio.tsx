@@ -24,17 +24,17 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Real Estate Vertical Campaign',
-    category: 'Social Ads',
-    image: '/real_state.png',
+    title: 'Digital Marketing Campaign',
+    category: 'Graphic Design',
+    image: '/digital_marketing.png',
     description:
-      'Multi-platform ad set designed for qualified leads and faster response rates.',
+      'Multi-platform ad set designed for qualified leads and faster response rates for digital marketing campaigns.',
   },
   {
     id: 3,
     title: 'Fitness Brand Retargeting Reel',
     category: 'Video Ads',
-    video: '/Video/Zain%20trader%20video%20(4).mp4',
+    video: '/Video/Zain%20trader%20video.mp4',
     image: '/gym_thumbnail.png',
     description:
       'Retargeting-focused visual storytelling that boosted click-through performance.',
@@ -42,7 +42,7 @@ const projects = [
   {
     id: 4,
     title: 'Restaurant Awareness Creative',
-    category: 'Branding',
+    category: 'Graphic Design',
     image: '/menu.png',
     description:
       'High-end brand visuals and ad creative optimized for local reach and social engagement.',
@@ -51,22 +51,38 @@ const projects = [
     id: 5,
     title: 'Travel Agency Promo Spot',
     category: 'Video Ads',
-    video: '/Video/Numberdar%20paint%20final.mp4',
+    video: '/Video/meta_ad.mp4',
     image: '/luxus_tour.jpg',
     description:
       'Story-led promotional ad crafted for brand trust and high watch-through rates.',
   },
   {
     id: 6,
-    title: 'Mobile App Acquisition Kit',
-    category: 'Social Ads',
+    title: 'Restaurant Menu',
+    category: 'Graphic Design',
     image: '/food_menu.jpg',
     description:
-      'Creative package tailored for app installs with rapid testing-ready variants.',
+      'Menu design for a restaurant',
+  },
+  {
+    id: 7,
+    title: 'Tourism Poster',
+    category: 'Graphic Design',
+    image: '/tour.png',
+    description:
+      'Tourism poster for a tourism agency',
+  },
+  {
+    id: 7,
+    title: 'Quran Poster',
+    category: 'Graphic Poster',
+    image: 'quran.png',
+    description:
+      'Quran poster for a Quran academy',
   },
 ];
 
-const categories = ['All', 'Video Ads', 'Social Ads', 'Branding'];
+const categories = ['All', 'Video Ads', 'Graphic Design'];
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -199,10 +215,10 @@ export default function Portfolio() {
               transition={{ duration: 0.3 }}
             >
               {selectedProject.video ? (
-                <div className="relative mb-6 h-96 w-full overflow-hidden rounded-lg">
+                <div className="relative mb-6 w-full overflow-hidden rounded-lg bg-black">
                   <video
                     src={selectedProject.video}
-                    className="h-full w-full object-cover"
+                    className="max-h-[60vh] w-full object-contain"
                     controls
                     playsInline
                     preload="metadata"
