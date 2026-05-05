@@ -1,8 +1,5 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'K2 Ad Studio - Video Ad Production',
@@ -36,7 +33,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+      <body
+        style={{
+          fontFamily:
+            'Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+        }}
+      >
+        {children}
+      </body>
     </html>
   );
 }
