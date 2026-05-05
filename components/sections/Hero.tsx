@@ -134,8 +134,8 @@ export default function Hero() {
                   src="/K2%20ad%20poster.png"
                   alt="K2 Ad Studio poster"
                   width={1200}
-                  height={900}
-                  className="h-[340px] w-full object-cover"
+                  height={800}
+                  className="h-[400px] w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>

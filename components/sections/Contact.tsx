@@ -107,10 +107,10 @@ export default function Contact() {
             href="https://wa.me/3400113341"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-3 py-3 font-semibold text-black shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-colors hover:bg-cyan-300"
+            className="inline-flex items-center gap-2 rounded-md bg-cyan-400 px-3 py-3 font-semibold text-black shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-colors hover:bg-cyan-300"
           >
-            <MessageCircleMore className="h-10 w-10" />
-                    
+            <MessageCircleMore className="h-5 w-5" />
+            Chat on WhatsApp
           </a>
         </div>
   {/* 
